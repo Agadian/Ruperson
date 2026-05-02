@@ -274,7 +274,7 @@
           <a href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>" class="btn btn-white btn-lg">
             <i class="fas fa-paper-plane"></i> Request Custom Quote
           </a>
-          <a href="tel:+2348000000000" class="btn btn-outline-white btn-lg">
+          <a href="tel:<?php echo esc_attr(jackie_get('phone', '+234 800 000 0000')); ?>" class="btn btn-outline-white btn-lg">
             <i class="fas fa-phone"></i> Call Us Now
           </a>
         </div>

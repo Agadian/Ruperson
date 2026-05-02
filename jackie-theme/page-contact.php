@@ -9,7 +9,7 @@
     </div>
     <div class="page-header-content">
       <div class="breadcrumb">
-        <a href="<?php echo esc_url(home_url('/'));?>">Home</a> <span>/</span> <span>Contact</span>
+        <a href="<?php echo esc_url(home_url('/')); ?>">Home</a> <span>/</span> <span>Contact</span>
       </div>
       <h1>Get In <span class="gradient-text">Touch</span></h1>
       <p>We'd love to hear from you. Let's start a conversation about your next project.</p>
@@ -30,7 +30,7 @@
               </div>
               <div>
                 <h4>Visit Our Office</h4>
-                <p>123 Creative Avenue, Victoria Island<br>Lagos, Nigeria</p>
+                <p><?php echo esc_html(jackie_get('address', '123 Creative Avenue, Victoria Island, Lagos, Nigeria')); ?></p>
               </div>
             </div>
             <div class="contact-info-card">
@@ -39,7 +39,7 @@
               </div>
               <div>
                 <h4>Call Us</h4>
-                <p>+234 800 000 0000<br>+234 901 234 5678</p>
+                <p><?php echo esc_html(jackie_get('phone', '+234 800 000 0000')); ?><br><?php echo esc_html(jackie_get('phone2', '+234 901 234 5678')); ?></p>
               </div>
             </div>
             <div class="contact-info-card">
@@ -48,7 +48,7 @@
               </div>
               <div>
                 <h4>Email Us</h4>
-                <p>hello@jackiecreative.com<br>info@jackiecreative.com</p>
+                <p><?php echo esc_html(jackie_get('email', 'hello@jackiecreative.com')); ?><br><?php echo esc_html(jackie_get('email2', 'info@jackiecreative.com')); ?></p>
               </div>
             </div>
             <div class="contact-info-card">
@@ -57,7 +57,7 @@
               </div>
               <div>
                 <h4>WhatsApp</h4>
-                <p>Chat with us instantly<br><a href="https://wa.me/2348000000000" target="_blank" style="color: var(--purple); font-weight: 600;">Open WhatsApp Chat</a></p>
+                <p>Chat with us instantly<br><a href="https://wa.me/<?php echo esc_attr(jackie_get('whatsapp', '2348000000000')); ?>" target="_blank" style="color: var(--purple); font-weight: 600;">Open WhatsApp Chat</a></p>
               </div>
             </div>
           </div>
@@ -67,15 +67,15 @@
             <h4><i class="fas fa-clock"></i> &nbsp;Business Hours</h4>
             <div class="hours-row">
               <span>Monday - Friday</span>
-              <span>9:00 AM - 6:00 PM</span>
+              <span><?php echo esc_html(jackie_get('hours_weekday', '9:00 AM - 6:00 PM')); ?></span>
             </div>
             <div class="hours-row">
               <span>Saturday</span>
-              <span>10:00 AM - 4:00 PM</span>
+              <span><?php echo esc_html(jackie_get('hours_saturday', '10:00 AM - 4:00 PM')); ?></span>
             </div>
             <div class="hours-row">
               <span>Sunday</span>
-              <span>Closed</span>
+              <span><?php echo esc_html(jackie_get('hours_sunday', 'Closed')); ?></span>
             </div>
           </div>
 
@@ -83,12 +83,12 @@
           <div style="margin-top: 24px;">
             <h4 style="font-family: var(--font-heading); font-weight: 700; margin-bottom: 16px;">Follow Us</h4>
             <div class="footer-social">
-              <a href="#" aria-label="Facebook" style="border-color: var(--border-color); color: var(--text-secondary);"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" aria-label="Instagram" style="border-color: var(--border-color); color: var(--text-secondary);"><i class="fab fa-instagram"></i></a>
-              <a href="#" aria-label="Twitter" style="border-color: var(--border-color); color: var(--text-secondary);"><i class="fab fa-twitter"></i></a>
-              <a href="#" aria-label="LinkedIn" style="border-color: var(--border-color); color: var(--text-secondary);"><i class="fab fa-linkedin-in"></i></a>
-              <a href="#" aria-label="Behance" style="border-color: var(--border-color); color: var(--text-secondary);"><i class="fab fa-behance"></i></a>
-              <a href="#" aria-label="TikTok" style="border-color: var(--border-color); color: var(--text-secondary);"><i class="fab fa-tiktok"></i></a>
+              <a href="<?php echo esc_url(jackie_get('facebook', '#')); ?>" aria-label="Facebook" style="border-color: var(--border-color); color: var(--text-secondary);"><i class="fab fa-facebook-f"></i></a>
+              <a href="<?php echo esc_url(jackie_get('instagram', '#')); ?>" aria-label="Instagram" style="border-color: var(--border-color); color: var(--text-secondary);"><i class="fab fa-instagram"></i></a>
+              <a href="<?php echo esc_url(jackie_get('twitter', '#')); ?>" aria-label="Twitter" style="border-color: var(--border-color); color: var(--text-secondary);"><i class="fab fa-twitter"></i></a>
+              <a href="<?php echo esc_url(jackie_get('linkedin', '#')); ?>" aria-label="LinkedIn" style="border-color: var(--border-color); color: var(--text-secondary);"><i class="fab fa-linkedin-in"></i></a>
+              <a href="<?php echo esc_url(jackie_get('behance', '#')); ?>" aria-label="Behance" style="border-color: var(--border-color); color: var(--text-secondary);"><i class="fab fa-behance"></i></a>
+              <a href="<?php echo esc_url(jackie_get('tiktok', '#')); ?>" aria-label="TikTok" style="border-color: var(--border-color); color: var(--text-secondary);"><i class="fab fa-tiktok"></i></a>
             </div>
           </div>
         </div>
@@ -101,21 +101,21 @@
             <div class="form-row">
               <div class="form-group">
                 <label>Full Name *</label>
-                <input type="text" placeholder="Your full name" required />
+                <input type="text" name="name" placeholder="Your full name" required />
               </div>
               <div class="form-group">
                 <label>Email Address *</label>
-                <input type="email" placeholder="your@email.com" required />
+                <input type="email" name="email" placeholder="your@email.com" required />
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
                 <label>Phone Number</label>
-                <input type="tel" placeholder="+234 XXX XXX XXXX" />
+                <input type="tel" name="phone" placeholder="+234 XXX XXX XXXX" />
               </div>
               <div class="form-group">
                 <label>Service Interested In</label>
-                <select>
+                <select name="service">
                   <option value="">Select a service</option>
                   <option value="branding">Branding &amp; Identity</option>
                   <option value="graphic-design">Graphic Design</option>
@@ -130,7 +130,7 @@
             </div>
             <div class="form-group">
               <label>Budget Range</label>
-              <select>
+              <select name="budget">
                 <option value="">Select your budget</option>
                 <option value="100-300">$100 - $300</option>
                 <option value="300-700">$300 - $700</option>
@@ -140,7 +140,7 @@
             </div>
             <div class="form-group">
               <label>Project Details *</label>
-              <textarea placeholder="Tell us about your project — goals, timeline, any specific requirements..." required></textarea>
+              <textarea name="message" placeholder="Tell us about your project — goals, timeline, any specific requirements..." required></textarea>
             </div>
             <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; justify-content: center;">
               <i class="fas fa-paper-plane"></i> Send Message
@@ -152,7 +152,7 @@
       <!-- Map -->
       <div class="contact-map reveal">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.7293958152024!2d3.4226085!3d6.4280556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bf53aec4dd92d%3A0x5e34fe6b8d86e3e5!2sVictoria%20Island%2C%20Lagos!5e0!3m2!1sen!2sng!4v1700000000000!5m2!1sen!2sng"
+          src="<?php echo esc_url(jackie_get('map_embed', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3964.7293958152024!2d3.4226085!3d6.4280556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103bf53aec4dd92d%3A0x5e34fe6b8d86e3e5!2sVictoria%20Island%2C%20Lagos!5e0!3m2!1sen!2sng!4v1700000000000!5m2!1sen!2sng')); ?>"
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
@@ -169,10 +169,10 @@
         <h2 class="cta-title">Prefer a Quick Chat?</h2>
         <p class="cta-desc">Reach us instantly on WhatsApp or give us a call. We're always happy to help!</p>
         <div class="cta-btns">
-          <a href="https://wa.me/2348000000000" target="_blank" class="btn btn-white btn-lg">
+          <a href="https://wa.me/<?php echo esc_attr(jackie_get('whatsapp', '2348000000000')); ?>" target="_blank" class="btn btn-white btn-lg">
             <i class="fab fa-whatsapp"></i> Chat on WhatsApp
           </a>
-          <a href="tel:+2348000000000" class="btn btn-outline-white btn-lg">
+          <a href="tel:<?php echo esc_attr(jackie_get('phone', '+234 800 000 0000')); ?>" class="btn btn-outline-white btn-lg">
             <i class="fas fa-phone"></i> Call Now
           </a>
         </div>

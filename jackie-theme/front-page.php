@@ -31,15 +31,15 @@
         </div>
         <div class="hero-stats">
           <div class="hero-stat">
-            <h3><span data-count="500" data-suffix="+">0</span></h3>
+            <h3><span data-count="<?php echo esc_attr(jackie_get('stat_projects', '500')); ?>" data-suffix="+">0</span></h3>
             <p>Projects Completed</p>
           </div>
           <div class="hero-stat">
-            <h3><span data-count="350" data-suffix="+">0</span></h3>
+            <h3><span data-count="<?php echo esc_attr(jackie_get('stat_clients', '350')); ?>" data-suffix="+">0</span></h3>
             <p>Happy Clients</p>
           </div>
           <div class="hero-stat">
-            <h3><span data-count="8" data-suffix="+">0</span></h3>
+            <h3><span data-count="<?php echo esc_attr(jackie_get('stat_years', '8')); ?>" data-suffix="+">0</span></h3>
             <p>Years Experience</p>
           </div>
         </div>
@@ -82,15 +82,15 @@
       </div>
       <div class="stats-row reveal">
         <div class="stat-card">
-          <div class="stat-number" data-count="500" data-suffix="+">0</div>
+          <div class="stat-number" data-count="<?php echo esc_attr(jackie_get('stat_projects', '500')); ?>" data-suffix="+">0</div>
           <p>Projects Completed</p>
         </div>
         <div class="stat-card">
-          <div class="stat-number" data-count="350" data-suffix="+">0</div>
+          <div class="stat-number" data-count="<?php echo esc_attr(jackie_get('stat_clients', '350')); ?>" data-suffix="+">0</div>
           <p>Happy Clients</p>
         </div>
         <div class="stat-card">
-          <div class="stat-number" data-count="8" data-suffix="+">0</div>
+          <div class="stat-number" data-count="<?php echo esc_attr(jackie_get('stat_years', '8')); ?>" data-suffix="+">0</div>
           <p>Years of Experience</p>
         </div>
         <div class="stat-card">
@@ -375,7 +375,7 @@
           <a href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>" class="btn btn-white btn-lg">
             <i class="fas fa-paper-plane"></i> Start Your Project
           </a>
-          <a href="tel:+2348000000000" class="btn btn-outline-white btn-lg">
+          <a href="tel:<?php echo esc_attr(jackie_get('phone', '+234 800 000 0000')); ?>" class="btn btn-outline-white btn-lg">
             <i class="fas fa-phone"></i> Call Us Now
           </a>
         </div>
