@@ -116,9 +116,16 @@
   box-sizing: border-box;
 }
 
+/* Prevent text from causing overflow */
+h1, h2, h3, h4, h5, h6, p, a, span, li, td, th, label {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
+  overflow-x: hidden;
 }
 
 body {
@@ -162,11 +169,13 @@ input, textarea, select {
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 20px;
+  width: 100%;
 }
 
 .section {
   padding: var(--section-padding);
   position: relative;
+  overflow: hidden;
 }
 
 .section-dark {
@@ -550,6 +559,7 @@ input, textarea, select {
   overflow: hidden;
   background: var(--gradient-hero);
   padding-top: 80px;
+  width: 100%;
 }
 
 .hero-bg {
@@ -711,8 +721,10 @@ input, textarea, select {
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 45%;
+  width: 40%;
   z-index: 1;
+  max-width: 450px;
+  overflow: hidden;
 }
 
 .floating-card {
@@ -1105,6 +1117,7 @@ input, textarea, select {
   padding: 100px 0;
   position: relative;
   overflow: hidden;
+  width: 100%;
 }
 
 .cta-inner {
@@ -1163,6 +1176,7 @@ input, textarea, select {
   background: var(--dark);
   color: var(--white);
   padding-top: 80px;
+  overflow: hidden;
 }
 
 .footer-grid {
@@ -1339,6 +1353,7 @@ input, textarea, select {
   position: relative;
   overflow: hidden;
   background: var(--gradient-hero);
+  width: 100%;
 }
 
 .page-header .hero-bg { opacity: 0.5; }
@@ -2175,6 +2190,13 @@ input, textarea, select {
   .hero-title { font-size: 3.2rem; }
   .section-title { font-size: 2.2rem; }
   .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  .pricing-card.popular { transform: none; }
+  .pricing-card.popular:hover { transform: translateY(-5px); }
+  .contact-grid { grid-template-columns: 1fr; }
+  .testimonials-slider { grid-template-columns: repeat(2, 1fr); }
+  .cta-inner { padding: 60px 40px; }
+  .cta-title { font-size: 2.2rem; }
 }
 
 @media (max-width: 768px) {
@@ -2197,6 +2219,7 @@ input, textarea, select {
     transition: right var(--transition-base);
     box-shadow: var(--shadow-xl);
     z-index: 10000;
+    padding: 20px;
   }
 
   .nav-links.active {
@@ -2210,9 +2233,12 @@ input, textarea, select {
 
   .nav-cta { display: none; }
 
+  .hero { padding-top: 100px; min-height: auto; padding-bottom: 60px; }
   .hero-title { font-size: 2.4rem; }
-  .hero-stats { gap: 24px; }
+  .hero-desc { font-size: 1rem; }
+  .hero-stats { gap: 24px; flex-wrap: wrap; }
   .hero-stat h3 { font-size: 1.8rem; }
+  .hero-content { max-width: 100%; }
 
   .grid-2, .grid-3, .grid-4,
   .about-intro,
@@ -2223,7 +2249,8 @@ input, textarea, select {
   .portfolio-grid,
   .testimonials-slider,
   .features-grid,
-  .values-grid {
+  .values-grid,
+  .stats-row {
     grid-template-columns: 1fr;
   }
 
@@ -2231,12 +2258,16 @@ input, textarea, select {
 
   .footer-grid { grid-template-columns: 1fr; }
 
+  .page-header { padding: 120px 0 60px; }
   .page-header h1 { font-size: 2.2rem; }
 
-  .cta-inner { padding: 48px 24px; }
-  .cta-title { font-size: 2rem; }
+  .cta-inner { padding: 48px 20px; }
+  .cta-title { font-size: 1.8rem; }
+  .cta-btns { flex-direction: column; align-items: center; }
 
+  .service-detail { gap: 30px; }
   .service-detail:nth-child(even) .service-detail-img { order: 0; }
+  .service-process { grid-template-columns: 1fr; }
 
   .timeline::before { left: 20px; }
   .timeline-item,
@@ -2254,17 +2285,88 @@ input, textarea, select {
   .pricing-card.popular:hover { transform: translateY(-5px); }
 
   .print-products-grid { grid-template-columns: 1fr 1fr; }
+
+  .newsletter-form { flex-direction: column; }
+  .newsletter-form input,
+  .newsletter-form button { width: 100%; }
+
+  .section-title { font-size: 2rem; }
+  .section-desc { font-size: 0.95rem; }
+
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+
+  .contact-info-card { flex-direction: column; text-align: center; }
+
+  .whatsapp-float { width: 48px; height: 48px; font-size: 1.3rem; bottom: 20px; right: 20px; }
+  .back-to-top { bottom: 80px; right: 20px; width: 40px; height: 40px; }
+
+  .hero-shape { opacity: 0.2; }
 }
 
 @media (max-width: 480px) {
-  .hero-title { font-size: 1.9rem; }
-  .hero-btns { flex-direction: column; }
-  .hero-stats { flex-direction: column; gap: 16px; }
+  .container { padding: 0 16px; }
+
+  .hero-title { font-size: 1.8rem; }
+  .hero-desc { font-size: 0.9rem; }
+  .hero-label { font-size: 0.75rem; padding: 6px 14px; }
+  .hero-btns { flex-direction: column; width: 100%; }
+  .hero-btns .btn { width: 100%; justify-content: center; }
+  .hero-stats { flex-direction: column; gap: 16px; margin-top: 40px; }
+  .hero-stat h3 { font-size: 1.6rem; }
+
   .services-grid { grid-template-columns: 1fr; }
   .print-products-grid { grid-template-columns: 1fr; }
-  .section-title { font-size: 1.8rem; }
-  .portfolio-filters { gap: 8px; }
-  .filter-btn { padding: 6px 16px; font-size: 0.8rem; }
+
+  .section-title { font-size: 1.6rem; }
+  .section-header { margin-bottom: 40px; }
+
+  .portfolio-filters { gap: 6px; }
+  .filter-btn { padding: 6px 14px; font-size: 0.75rem; }
+  .portfolio-grid { gap: 16px; }
+
+  .testimonial-card { padding: 24px; }
+  .service-card { padding: 28px 20px; }
+  .stat-card { padding: 28px 16px; }
+  .stat-card .stat-number { font-size: 2.2rem; }
+
+  .cta-title { font-size: 1.5rem; }
+  .cta-desc { font-size: 0.9rem; }
+
+  .page-header { padding: 110px 0 50px; }
+  .page-header h1 { font-size: 1.8rem; }
+  .page-header p { font-size: 0.9rem; }
+
+  .footer-grid { gap: 30px; }
+  .footer-about p { font-size: 0.85rem; }
+
+  .pricing-card { padding: 28px 20px; }
+  .pricing-card .price { font-size: 2.2rem; }
+
+  .print-pricing-table th,
+  .print-pricing-table td { padding: 10px 12px; font-size: 0.8rem; }
+
+  .contact-form-wrap { padding: 24px 16px; }
+
+  .btn-lg { padding: 14px 28px; font-size: 0.95rem; }
+
+  .team-grid { grid-template-columns: 1fr; }
+  .values-grid { gap: 16px; }
+  .features-grid { gap: 16px; }
+
+  .mv-card { padding: 32px 24px; }
+
+  .business-hours { padding: 16px; }
+}
+
+@media (max-width: 360px) {
+  .container { padding: 0 12px; }
+  .hero-title { font-size: 1.5rem; }
+  .section-title { font-size: 1.4rem; }
+  .cta-title { font-size: 1.3rem; }
+  .page-header h1 { font-size: 1.5rem; }
+  .btn { padding: 12px 20px; font-size: 0.85rem; }
+  .btn-lg { padding: 12px 24px; font-size: 0.9rem; }
+  .nav-logo { font-size: 1.3rem; }
 }
 
 /* ---------- Mobile Menu Overlay ---------- */
