@@ -432,6 +432,22 @@ input, textarea, select {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-logo .brand-tag {
+  font-family: var(--font-accent);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: none;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: var(--text-secondary);
+  background-clip: unset;
+  opacity: 0.7;
 }
 
 .nav-logo span {
@@ -552,13 +568,13 @@ input, textarea, select {
 
 /* ---------- Hero Section ---------- */
 .hero {
-  min-height: 100vh;
+  min-height: auto;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
   background: var(--gradient-hero);
-  padding-top: 80px;
+  padding: 120px 0 80px;
   width: 100%;
 }
 
@@ -1348,7 +1364,7 @@ input, textarea, select {
 
 /* ---------- Page Header (Inner Pages) ---------- */
 .page-header {
-  padding: 160px 0 80px;
+  padding: 120px 0 60px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -2233,7 +2249,7 @@ input, textarea, select {
 
   .nav-cta { display: none; }
 
-  .hero { padding-top: 100px; min-height: auto; padding-bottom: 60px; }
+  .hero { padding: 100px 0 50px; }
   .hero-title { font-size: 2.4rem; }
   .hero-desc { font-size: 1rem; }
   .hero-stats { gap: 24px; flex-wrap: wrap; }
@@ -2258,7 +2274,7 @@ input, textarea, select {
 
   .footer-grid { grid-template-columns: 1fr; }
 
-  .page-header { padding: 120px 0 60px; }
+  .page-header { padding: 100px 0 40px; }
   .page-header h1 { font-size: 2.2rem; }
 
   .cta-inner { padding: 48px 20px; }
@@ -2305,6 +2321,7 @@ input, textarea, select {
 
 @media (max-width: 480px) {
   .container { padding: 0 16px; }
+  .nav-logo .brand-tag { display: none; }
 
   .hero-title { font-size: 1.8rem; }
   .hero-desc { font-size: 0.9rem; }
