@@ -3,7 +3,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-about">
-          <div class="footer-logo">Jackie.</div>
+          <div class="footer-logo">Goodness.</div>
           <p>We are a creative digital agency specializing in branding, design, printing, and digital marketing. Transforming brands with innovative solutions.</p>
           <div class="footer-social">
             <a href="<?php echo esc_url(jackie_get('facebook', '#')); ?>" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -43,7 +43,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; <?php echo date('Y'); ?> Jackie Creative Agency. All rights reserved.</p>
+        <p>&copy; <?php echo date('Y'); ?> Goodness Graphics & Prints. All rights reserved.</p>
         <div>
           <a href="<?php echo esc_url(get_privacy_policy_url()); ?>">Privacy Policy</a> &nbsp;|&nbsp; <a href="#">Terms of Service</a>
         </div>

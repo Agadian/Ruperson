@@ -3,6 +3,7 @@
 <head>
   <meta charset="<?php bloginfo('charset'); ?>" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>&#x1F3A8;</text></svg>">
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -10,7 +11,7 @@
 
   <div class="loading-screen">
     <div class="loader">
-      <div class="loader-logo">Jackie.</div>
+      <div class="loader-logo">Goodness.</div>
       <div class="loader-bar"><div class="loader-bar-fill"></div></div>
     </div>
   </div>
@@ -21,7 +22,7 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="container">
-      <a href="<?php echo esc_url(home_url('/')); ?>" class="nav-logo">Jackie<span>.</span> <span class="brand-tag">Creative Agency</span></a>
+      <a href="<?php echo esc_url(home_url('/')); ?>" class="nav-logo">Goodness<span>.</span> <span class="brand-tag">Graphics & Prints</span></a>
       <div class="nav-links">
         <a href="<?php echo esc_url(home_url('/')); ?>" <?php echo is_front_page() ? 'class="active"' : ''; ?>>Home</a>
         <a href="<?php echo esc_url(get_permalink(get_page_by_path('about'))); ?>" <?php echo is_page('about') ? 'class="active"' : ''; ?>>About</a>

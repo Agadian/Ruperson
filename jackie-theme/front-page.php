@@ -78,7 +78,7 @@
       <div class="section-header reveal">
         <span class="section-label">Who We Are</span>
         <h2 class="section-title">Creative Solutions That <span class="gradient-text">Drive Results</span></h2>
-        <p class="section-desc">Jackie Creative Agency is a full-service design and digital marketing studio. We blend creativity with strategy to deliver memorable brand experiences.</p>
+        <p class="section-desc">Goodness Graphics &amp; Prints is a full-service design and digital marketing studio. We blend creativity with strategy to deliver memorable brand experiences.</p>
       </div>
       <div class="stats-row reveal">
         <div class="stat-card">
@@ -266,7 +266,7 @@
   <section class="section">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-label">Why Jackie</span>
+        <span class="section-label">Why Goodness</span>
         <h2 class="section-title">Why Choose <span class="gradient-text">Us</span></h2>
         <p class="section-desc">We combine creativity, technology, and strategic thinking to deliver outstanding results for every client.</p>
       </div>
@@ -324,7 +324,7 @@
           <div class="testimonial-stars">
             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
           </div>
-          <p class="testimonial-text">Jackie transformed our brand completely. The team's creativity and attention to detail exceeded all our expectations. Highly recommended!</p>
+          <p class="testimonial-text">Goodness Graphics transformed our brand completely. The team's creativity and attention to detail exceeded all our expectations. Highly recommended!</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar" style="background: var(--gradient-primary);">A</div>
             <div class="testimonial-info">
@@ -352,7 +352,7 @@
           <div class="testimonial-stars">
             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
           </div>
-          <p class="testimonial-text">Our social media presence went from invisible to viral thanks to Jackie's creative team. They truly understand digital branding and engagement.</p>
+          <p class="testimonial-text">Our social media presence went from invisible to viral thanks to Goodness's creative team. They truly understand digital branding and engagement.</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar" style="background: var(--gradient-cool);">M</div>
             <div class="testimonial-info">

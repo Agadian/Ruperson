@@ -1,6 +1,6 @@
 <?php
 /**
- * Jackie Creative Agency Theme Functions
+ * Goodness Graphics & Prints Theme Functions
  */
 
 if (!defined('ABSPATH')) exit;

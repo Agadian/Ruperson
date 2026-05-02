@@ -44,7 +44,7 @@
                             name: name,
                         },
                         customizations: {
-                            title: 'Jackie Creative Agency',
+                            title: 'Goodness Graphics & Prints',
                             description: 'Payment for Order #' + orderId,
                             logo: '',
                         },

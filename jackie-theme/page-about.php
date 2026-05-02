@@ -11,7 +11,7 @@
       <div class="breadcrumb">
         <a href="<?php echo esc_url(home_url('/'));?>">Home</a> <span>/</span> <span>About Us</span>
       </div>
-      <h1>About <span class="gradient-text">Jackie</span></h1>
+      <h1>About <span class="gradient-text">Goodness</span></h1>
       <p>Discover the story, passion, and people behind our creative agency.</p>
     </div>
   </section>
@@ -28,7 +28,7 @@
         <div class="about-intro-content reveal-right">
           <span class="section-label">Our Story</span>
           <h2>From a <span class="gradient-text">Small Studio</span> to a Full Creative Agency</h2>
-          <p>Jackie Creative Agency was founded with a simple belief: that great design has the power to transform businesses and inspire people. What started as a small design studio has grown into a full-service creative powerhouse.</p>
+          <p>Goodness Graphics &amp; Prints was founded with a simple belief: that great design has the power to transform businesses and inspire people. What started as a small design studio has grown into a full-service creative powerhouse.</p>
           <p>Over the years, we've had the privilege of working with hundreds of brands — from ambitious startups to established enterprises — helping them craft visual identities that stand out, connect, and convert.</p>
           <p>Our team of passionate designers, strategists, and digital experts work together to deliver creative solutions that don't just look beautiful — they drive real business results.</p>
           <a href="<?php echo esc_url(get_permalink(get_page_by_path('contact'))); ?>" class="btn btn-primary" style="margin-top: 12px;">
@@ -84,7 +84,7 @@
             </div>
           </div>
           <div class="team-card-info">
-            <h4>Jackie Okafor</h4>
+            <h4>Goodness Okafor</h4>
             <p>Founder &amp; Creative Director</p>
           </div>
         </div>
@@ -136,14 +136,14 @@
     <div class="container">
       <div class="section-header reveal">
         <span class="section-label" style="-webkit-text-fill-color: var(--purple-light);">Our Journey</span>
-        <h2 class="section-title" style="color: var(--white);">The Jackie <span class="gradient-text">Timeline</span></h2>
+        <h2 class="section-title" style="color: var(--white);">The Goodness <span class="gradient-text">Timeline</span></h2>
       </div>
       <div class="timeline reveal">
         <div class="timeline-item">
           <div class="timeline-content">
             <h4>2016</h4>
             <h3>The Beginning</h3>
-            <p>Jackie Creative was born as a small freelance design studio with a big dream and a passion for visual storytelling.</p>
+            <p>Goodness Graphics was born as a small freelance design studio with a big dream and a passion for visual storytelling.</p>
           </div>
           <div class="timeline-dot"></div>
         </div>
