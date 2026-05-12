@@ -1,0 +1,17 @@
+/*
+Theme Name: Vehdoc
+Theme URI: https://vehdoc.com
+Author: Vehdoc Team
+Author URI: https://vehdoc.com
+Description: A modern, premium WordPress theme for vehicle document processing and renewal services in Nigeria. Features include online document processing, payment integration (Paystack & Flutterwave), order tracking, doorstep delivery scheduling, and automated renewal reminders.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.5
+Requires PHP: 8.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: vehdoc
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, one-column, two-columns, right-sidebar, responsive-layout
+*/
+
+/* This file is intentionally minimal — all theme styles are in css/theme-style.css */
