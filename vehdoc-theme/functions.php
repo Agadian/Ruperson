@@ -179,7 +179,7 @@ function vehdoc_rewrite_rules() {
     add_rewrite_rule('dashboard/tracking/([0-9]+)/?$', 'index.php?pagename=dashboard&vehdoc_tab=tracking&order_id=$matches[1]', 'top');
     add_rewrite_rule('dashboard/profile/?$', 'index.php?pagename=dashboard&vehdoc_tab=profile', 'top');
 }
-add_action('init', 'vehdoc_rewrite_rules');
+add_action('init', 'vehdoc_rewrite_rules', 20);
 
 function vehdoc_query_vars($vars) {
     $vars[] = 'vehdoc_tab';
@@ -291,9 +291,73 @@ function vehdoc_activate() {
         }
     }
 
-    flush_rewrite_rules();
+    // Set permalink structure to Post name (required for clean URLs)
+    global $wp_rewrite;
+    $wp_rewrite->set_permalink_structure('/%postname%/');
+    $wp_rewrite->flush_rules(true);
+
+    // Set the front page to display latest posts (not a static page)
+    // so front-page.php is used as the template
+    update_option('show_on_front', 'posts');
+
+    // Mark activation as complete
+    update_option('vehdoc_theme_activated', true);
 }
 add_action('after_switch_theme', 'vehdoc_activate');
+
+/**
+ * Ensure pages and rewrite rules exist on every init (one-time setup)
+ * Handles cases where theme activation didn't fully run
+ */
+function vehdoc_ensure_setup() {
+    if (get_option('vehdoc_pages_version', 0) >= 2) {
+        return;
+    }
+
+    $pages = array(
+        'Dashboard'        => 'templates/template-dashboard.php',
+        'Services'         => 'templates/template-services.php',
+        'Login'            => 'templates/template-login.php',
+        'Register'         => 'templates/template-register.php',
+        'Checkout'         => 'templates/template-checkout.php',
+        'Track Order'      => 'templates/template-tracking.php',
+        'About Us'         => 'templates/template-about.php',
+        'Contact Us'       => 'templates/template-contact.php',
+        'Privacy Policy'   => 'templates/template-privacy.php',
+        'Terms of Service' => 'templates/template-terms.php',
+    );
+
+    foreach ($pages as $title => $template) {
+        $existing = get_page_by_title($title, OBJECT, 'page');
+        if ($existing) {
+            if ($existing->post_status !== 'publish') {
+                wp_update_post(array('ID' => $existing->ID, 'post_status' => 'publish'));
+            }
+            update_post_meta($existing->ID, '_wp_page_template', $template);
+        } else {
+            $page_id = wp_insert_post(array(
+                'post_title'   => $title,
+                'post_status'  => 'publish',
+                'post_type'    => 'page',
+                'post_content' => '',
+            ));
+            if ($page_id && !is_wp_error($page_id)) {
+                update_post_meta($page_id, '_wp_page_template', $template);
+            }
+        }
+    }
+
+    // Ensure permalink structure is set
+    $permalink_structure = get_option('permalink_structure');
+    if (empty($permalink_structure) || $permalink_structure !== '/%postname%/') {
+        global $wp_rewrite;
+        $wp_rewrite->set_permalink_structure('/%postname%/');
+        $wp_rewrite->flush_rules(true);
+    }
+
+    update_option('vehdoc_pages_version', 2);
+}
+add_action('init', 'vehdoc_ensure_setup');
 
 /**
  * AJAX Handler: User Registration
