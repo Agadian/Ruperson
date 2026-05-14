@@ -241,7 +241,12 @@ function vehdoc_activate() {
 
     foreach ($pages as $title => $template) {
         $existing = get_page_by_title($title, OBJECT, 'page');
-        if (!$existing) {
+        if ($existing) {
+            if ($existing->post_status !== 'publish') {
+                wp_update_post(array('ID' => $existing->ID, 'post_status' => 'publish'));
+            }
+            update_post_meta($existing->ID, '_wp_page_template', $template);
+        } else {
             $page_id = wp_insert_post(array(
                 'post_title'   => $title,
                 'post_status'  => 'publish',
