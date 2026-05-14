@@ -87,7 +87,7 @@ get_header(); ?>
                 </button>
 
                 <p class="checkout-note">
-                    By completing this payment, you agree to our <a href="<?php echo home_url('/terms/'); ?>">Terms of Service</a>.
+                    By completing this payment, you agree to our <a href="<?php echo home_url('/terms-of-service/'); ?>">Terms of Service</a>.
                 </p>
             </div>
         </div>

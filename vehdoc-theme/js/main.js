@@ -304,6 +304,43 @@
         });
     }
 
+    // Contact Form
+    var contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            var btn = document.getElementById('contactBtn');
+            showBtnLoader(btn, true);
+
+            $.ajax({
+                url: vehdocMain.ajaxUrl,
+                type: 'POST',
+                data: {
+                    action: 'vehdoc_contact',
+                    nonce: vehdocMain.nonce,
+                    name: document.getElementById('contact_name').value,
+                    email: document.getElementById('contact_email').value,
+                    phone: document.getElementById('contact_phone').value,
+                    subject: document.getElementById('contact_subject').value,
+                    message: document.getElementById('contact_message').value,
+                },
+                success: function(res) {
+                    showBtnLoader(btn, false);
+                    if (res.success) {
+                        showAlert('contactAlert', res.data.message, 'success');
+                        contactForm.reset();
+                    } else {
+                        showAlert('contactAlert', res.data.message, 'error');
+                    }
+                },
+                error: function() {
+                    showBtnLoader(btn, false);
+                    showAlert('contactAlert', 'An error occurred. Please try again.', 'error');
+                }
+            });
+        });
+    }
+
     // Newsletter Form
     var newsletterForm = document.getElementById('newsletterForm');
     if (newsletterForm) {

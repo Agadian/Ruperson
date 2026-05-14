@@ -69,7 +69,7 @@ get_header(); ?>
                 <div class="form-group">
                     <label class="checkbox-label">
                         <input type="checkbox" name="agree_terms" required>
-                        I agree to the <a href="<?php echo home_url('/terms/'); ?>" target="_blank">Terms of Service</a> and <a href="<?php echo home_url('/privacy-policy/'); ?>" target="_blank">Privacy Policy</a>
+                        I agree to the <a href="<?php echo home_url('/terms-of-service/'); ?>" target="_blank">Terms of Service</a> and <a href="<?php echo home_url('/privacy-policy/'); ?>" target="_blank">Privacy Policy</a>
                     </label>
                 </div>
 

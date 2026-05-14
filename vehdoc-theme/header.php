@@ -40,9 +40,10 @@
                 <ul class="nav-links">
                     <li><a href="<?php echo home_url('/'); ?>" class="nav-link">Home</a></li>
                     <li><a href="<?php echo home_url('/services/'); ?>" class="nav-link">Services</a></li>
+                    <li><a href="<?php echo home_url('/about-us/'); ?>" class="nav-link">About</a></li>
                     <li><a href="<?php echo home_url('/#how-it-works'); ?>" class="nav-link">How It Works</a></li>
-                    <li><a href="<?php echo home_url('/#faq'); ?>" class="nav-link">FAQ</a></li>
-                    <li><a href="<?php echo home_url('/#contact'); ?>" class="nav-link">Contact</a></li>
+                    <li><a href="<?php echo home_url('/track-order/'); ?>" class="nav-link">Track Order</a></li>
+                    <li><a href="<?php echo home_url('/contact-us/'); ?>" class="nav-link">Contact</a></li>
                 </ul>
             </div>
 

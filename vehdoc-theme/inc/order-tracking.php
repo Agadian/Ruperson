@@ -145,3 +145,38 @@ function vehdoc_tracking_shortcode($atts) {
     return ob_get_clean();
 }
 add_shortcode('vehdoc_tracking', 'vehdoc_tracking_shortcode');
+
+/**
+ * Get Tracking by Order Number (VHD-XXXXXX format)
+ */
+function vehdoc_get_tracking_by_number($order_number) {
+    $order_number = strtoupper(trim($order_number));
+    $order_id     = 0;
+
+    if (preg_match('/^VHD-?(\d+)$/i', $order_number, $m)) {
+        $order_id = intval($m[1]);
+    } elseif (is_numeric($order_number)) {
+        $order_id = intval($order_number);
+    }
+
+    if (!$order_id) return null;
+
+    $order = get_post($order_id);
+    if (!$order || $order->post_type !== 'vehdoc_order') return null;
+
+    $order_user = get_post_meta($order_id, '_vehdoc_order_user', true);
+    if ($order_user != get_current_user_id() && !current_user_can('manage_options')) {
+        return null;
+    }
+
+    $tracking = vehdoc_get_tracking_data($order_id);
+    if (!$tracking) return null;
+
+    $service_id = get_post_meta($order_id, '_vehdoc_order_service', true);
+    $service    = $service_id ? get_post($service_id) : null;
+
+    $tracking['service'] = $service ? $service->post_title : 'Vehicle Documentation Service';
+    $tracking['status']  = get_post_meta($order_id, '_vehdoc_order_status', true) ?: 'pending';
+
+    return $tracking;
+}

@@ -227,12 +227,16 @@ add_filter('upload_mimes', 'vehdoc_mime_types');
  */
 function vehdoc_activate() {
     $pages = array(
-        'Dashboard'  => 'templates/template-dashboard.php',
-        'Services'   => 'templates/template-services.php',
-        'Login'      => 'templates/template-login.php',
-        'Register'   => 'templates/template-register.php',
-        'Checkout'   => 'templates/template-checkout.php',
-        'Track Order'=> 'templates/template-tracking.php',
+        'Dashboard'      => 'templates/template-dashboard.php',
+        'Services'       => 'templates/template-services.php',
+        'Login'          => 'templates/template-login.php',
+        'Register'       => 'templates/template-register.php',
+        'Checkout'       => 'templates/template-checkout.php',
+        'Track Order'    => 'templates/template-tracking.php',
+        'About Us'       => 'templates/template-about.php',
+        'Contact Us'     => 'templates/template-contact.php',
+        'Privacy Policy' => 'templates/template-privacy.php',
+        'Terms of Service' => 'templates/template-terms.php',
     );
 
     foreach ($pages as $title => $template) {
@@ -402,3 +406,41 @@ function vehdoc_ajax_forgot_password() {
     wp_send_json_success(array('message' => 'Password reset link sent to your email.'));
 }
 add_action('wp_ajax_nopriv_vehdoc_forgot_password', 'vehdoc_ajax_forgot_password');
+
+/**
+ * AJAX Handler: Contact Form
+ */
+function vehdoc_ajax_contact() {
+    check_ajax_referer('wp_rest', 'nonce');
+
+    $name    = sanitize_text_field($_POST['name'] ?? '');
+    $email   = sanitize_email($_POST['email'] ?? '');
+    $phone   = sanitize_text_field($_POST['phone'] ?? '');
+    $subject = sanitize_text_field($_POST['subject'] ?? '');
+    $message = sanitize_textarea_field($_POST['message'] ?? '');
+
+    if (empty($name) || empty($email) || empty($subject) || empty($message)) {
+        wp_send_json_error(array('message' => 'Please fill in all required fields.'));
+    }
+
+    $admin_email = get_option('vehdoc_company_email', get_option('admin_email'));
+    $subject_map = array(
+        'general'     => 'General Inquiry',
+        'order'       => 'Order Support',
+        'payment'     => 'Payment Issue',
+        'delivery'    => 'Delivery Question',
+        'partnership' => 'Partnership Inquiry',
+        'other'       => 'Other',
+    );
+
+    $subject_text = $subject_map[$subject] ?? $subject;
+    $email_subject = "[Vehdoc Contact] {$subject_text} from {$name}";
+    $email_body = "Name: {$name}\nEmail: {$email}\nPhone: {$phone}\nSubject: {$subject_text}\n\nMessage:\n{$message}";
+
+    $headers = array("Reply-To: {$name} <{$email}>");
+    wp_mail($admin_email, $email_subject, $email_body, $headers);
+
+    wp_send_json_success(array('message' => 'Thank you! Your message has been sent. We will respond within 2 hours.'));
+}
+add_action('wp_ajax_vehdoc_contact', 'vehdoc_ajax_contact');
+add_action('wp_ajax_nopriv_vehdoc_contact', 'vehdoc_ajax_contact');

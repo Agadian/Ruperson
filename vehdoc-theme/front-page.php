@@ -427,8 +427,8 @@ $service_icons = array(
                 <a href="<?php echo home_url('/register/'); ?>" class="btn btn-white btn-lg">
                     <i class="fa-solid fa-rocket"></i> Get Started Now
                 </a>
-                <a href="<?php echo 'https://wa.me/' . preg_replace('/[^0-9]/', '', get_option('vehdoc_whatsapp_number', '')); ?>" target="_blank" class="btn btn-outline-white btn-lg">
-                    <i class="fa-brands fa-whatsapp"></i> Chat With Us
+                <a href="<?php echo home_url('/contact-us/'); ?>" class="btn btn-outline-white btn-lg">
+                    <i class="fa-solid fa-headset"></i> Contact Us
                 </a>
             </div>
         </div>

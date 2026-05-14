@@ -40,11 +40,21 @@
             <div class="footer-col">
                 <h4>Company</h4>
                 <ul class="footer-links">
+                    <li><a href="<?php echo home_url('/about-us/'); ?>">About Us</a></li>
                     <li><a href="<?php echo home_url('/#how-it-works'); ?>">How It Works</a></li>
                     <li><a href="<?php echo home_url('/#faq'); ?>">FAQ</a></li>
+                    <li><a href="<?php echo home_url('/contact-us/'); ?>">Contact Us</a></li>
+                    <li><a href="<?php echo home_url('/track-order/'); ?>">Track Order</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul class="footer-links">
                     <li><a href="<?php echo home_url('/privacy-policy/'); ?>">Privacy Policy</a></li>
-                    <li><a href="<?php echo home_url('/terms/'); ?>">Terms of Service</a></li>
-                    <li><a href="<?php echo home_url('/#contact'); ?>">Contact Us</a></li>
+                    <li><a href="<?php echo home_url('/terms-of-service/'); ?>">Terms of Service</a></li>
+                    <li><a href="<?php echo home_url('/login/'); ?>">Login</a></li>
+                    <li><a href="<?php echo home_url('/register/'); ?>">Register</a></li>
                 </ul>
             </div>
 
